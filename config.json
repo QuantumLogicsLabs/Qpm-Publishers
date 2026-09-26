@@ -1,0 +1,9 @@
+{
+  "port": 8000,
+  "host": "0.0.0.0",
+  "dataDir": "./data",
+  "publicUrl": "",
+  "requireLogin": false,
+  "maxUploadMb": 100,
+  "tokenTtlDays": 30
+}
