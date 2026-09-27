@@ -145,8 +145,36 @@ Errors are JSON: `{"error": "..."}`.
 
 ## Exposing it to the internet
 
-The server speaks plain HTTP. That's fine on a home or office network, but for access
-over the internet:
+### Quick: a random public address
+
+Double-click `start-public.bat`, or run:
+
+```bash
+node public.js     # or: npm run public
+```
+
+This starts the registry and opens a free [localhost.run](https://localhost.run) tunnel
+over SSH. There's no account, download, port forwarding or firewall rule. It prints an
+address like this:
+
+```
+Public registry address (a new one is generated every run):
+  https://a922c662904f8a.lhr.life/api/registry/
+```
+
+Set `QPM_REGISTRY` to that address on any device with internet access. Keep the window
+open, because closing it takes the registry offline. The address changes on every run,
+and localhost.run may also change it while the registry is running (the new one is
+printed when that happens). The tunnel needs the `ssh` command, which Windows 10 and 11
+include as the "OpenSSH Client" optional feature.
+
+Anyone who has the address can use the registry, so consider setting `requireLogin` to
+`true` first.
+
+### Permanent: your own domain
+
+The server speaks plain HTTP. That's fine on a home or office network, but for a
+permanent address on the internet:
 
 1. Put it behind a reverse proxy that adds HTTPS, such as Caddy or nginx.
 2. Set `publicUrl` to the public `https://` address.

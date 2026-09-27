@@ -5,7 +5,8 @@
   "description": "Self-contained QPM package registry for Quantum Language: no npm dependencies, no database.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "public": "node public.js"
   },
   "engines": {
     "node": ">=18"
